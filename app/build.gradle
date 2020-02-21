@@ -53,7 +53,7 @@ android.testVariants.all {
     def variant = it.testedVariant
     def variantName = variant.name.capitalize()
 
-    task "jacoco${variantName}TestReport"(type: JacocoReport) {
+    task "jacoco${variantName}TestReport"(type: JacocoReport, dependsOn: "test${variantName}UnitTest") {
         reports {
             xml.enabled = true
             html.enabled = true
