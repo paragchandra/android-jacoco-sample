@@ -9,31 +9,16 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        // classpath fileTree(include: ['*.jar'], dir: '/Users/pchandra/dev/gradle-android-junit-jacoco-plugin/build/libs')
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
     }
-}
-
-// apply plugin: com.vanniktech.android.junit.jacoco.GenerationPlugin
-
-plugins {
-    id "com.vanniktech.android.junit.jacoco" version "0.15.0"
 }
 
 allprojects {
     repositories {
         google()
         jcenter()
-        
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
-}
-
-junitJacoco {
-    jacocoVersion = '0.8.5'
-    includeInstrumentationCoverageInMergedReport = true
 }

@@ -4,6 +4,12 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = "0.8.5"
+}
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -24,6 +30,12 @@ android {
             testCoverageEnabled true
         }
     }
+
+    testOptions.unitTests.all {
+        jacoco {
+            includeNoLocationClasses = true
+        }
+    }
 }
 
 dependencies {
@@ -35,4 +47,28 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+}
+
+android.testVariants.all {
+    def variant = it.testedVariant
+    def variantName = variant.name.capitalize()
+
+    task "jacoco${variantName}TestReport"(type: JacocoReport) {
+        reports {
+            xml.enabled = true
+            html.enabled = true
+        }
+
+        classDirectories = fileTree(
+            dir: buildDir,
+            includes: ["tmp/kotlin-classes/${variant.name}/**"]
+        )
+
+        executionData = fileTree(
+            dir: buildDir,
+            includes: ["**/test${variantName}UnitTest.exec"]
+        )
+
+        sourceDirectories = files(variant.sourceSets.collectMany({ it.java.source }))
+    }    
 }

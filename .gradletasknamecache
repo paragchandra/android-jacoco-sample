@@ -43,9 +43,6 @@ app:uninstallAll
 app:uninstallDebug
 app:uninstallDebugAndroidTest
 app:uninstallRelease
-app:combinedTestReportDebug
-app:jacocoTestReportDebug
-app:jacocoTestReportRelease
 app:check
 app:connectedAndroidTest
 app:connectedCheck
@@ -143,7 +140,6 @@ app:generateReleaseUnitTestAssets
 app:generateReleaseUnitTestResources
 app:generateReleaseUnitTestSources
 app:jacocoDebug
-jacocoTestReportMerged
 app:javaPreCompileDebug
 app:javaPreCompileDebugAndroidTest
 app:javaPreCompileDebugUnitTest
@@ -172,7 +168,6 @@ app:mergeDexRelease
 app:mergeExtDexDebug
 app:mergeExtDexDebugAndroidTest
 app:mergeExtDexRelease
-mergeJacocoReports
 app:mergeLibDexDebug
 app:mergeLibDexDebugAndroidTest
 app:mergeProjectDexDebug
@@ -284,9 +279,6 @@ uninstallAll
 uninstallDebug
 uninstallDebugAndroidTest
 uninstallRelease
-combinedTestReportDebug
-jacocoTestReportDebug
-jacocoTestReportRelease
 check
 connectedAndroidTest
 connectedCheck
@@ -384,7 +376,6 @@ generateReleaseUnitTestAssets
 generateReleaseUnitTestResources
 generateReleaseUnitTestSources
 jacocoDebug
-jacocoTestReportMerged
 javaPreCompileDebug
 javaPreCompileDebugAndroidTest
 javaPreCompileDebugUnitTest
@@ -413,7 +404,6 @@ mergeDexRelease
 mergeExtDexDebug
 mergeExtDexDebugAndroidTest
 mergeExtDexRelease
-mergeJacocoReports
 mergeLibDexDebug
 mergeLibDexDebugAndroidTest
 mergeProjectDexDebug
